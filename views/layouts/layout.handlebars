@@ -2,7 +2,8 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
 </head>
 <body>
     {{{messages}}}
@@ -11,6 +12,11 @@
             {{msg}}
         {{/each}}
     {{/if}}
-    {{{body}}}
+    <div class="container">
+        {{{body}}}
+    </div>
+
+<script src="/public/javascripts/jquery.min.js"></script>
+<script src="/public/javascripts/bootstrap.min.js"></script>
 </body>
 </html>

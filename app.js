@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var expressHandlebars = require('express-handlebars');
+var exphbs = require('express-handlebars');
 var expressValidator = require('express-validator');
 var session = require('express-session');
 var flash = require('connect-flash');
@@ -22,7 +22,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', expressHandlebars());
+app.engine('handlebars', exphbs({}));
 app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public
