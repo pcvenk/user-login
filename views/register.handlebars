@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<form class="form-signin">
+    <h2 class="form-signin-heading">{{title}}</h2>
+    <label class="sr-only">Name</label>
+    <input type="text"
+           name="name"
+           class="form-control"
+           placeholder="Name"
+           name="fake_username_remembered"
+           required autofocus>
+    <label class="sr-only">Username</label>
+    <input type="text"
+           name="username"
+           class="form-control"
+           placeholder="Username"
+           required autofocus>
+    <label class="sr-only">Email</label>
+    <input type="email"
+           name="email"
+           class="form-control"
+           placeholder="Email"
+           required>
+    <label class="sr-only">Password</label>
+    <input type="password"
+           name="password"
+           class="form-control"
+           placeholder="Password"
+           required>
+    <input type="password"
+           name="password2"
+           class="form-control"
+           placeholder="Confirm Password"
+           required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+    <span>Already have an account?</span><a href="/"> Sign in</a>
+</form>
+
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>

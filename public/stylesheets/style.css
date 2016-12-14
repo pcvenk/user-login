@@ -4,6 +4,14 @@ body {
   background-color: #eee !important;
 }
 
+.form-signin h2 {
+  text-align: center;
+}
+
+.form-signin input {
+  margin-bottom: 10px;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -29,7 +37,6 @@ body {
   z-index: 2;
 }
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }

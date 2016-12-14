@@ -3,18 +3,19 @@
 
 <form class="form-signin">
     <h2 class="form-signin-heading">{{title}}</h2>
-    <label>User name</label>
+    <label class="sr-only">User name</label>
     <input type="text"
            class="form-control"
            placeholder="Username"
            name="fake_username_remembered"
            required autofocus>
-    <label>Password</label>
+    <label class="sr-only">Password</label>
     <input type="password"
            class="form-control"
            placeholder="Password"
            required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+    <a href="/register">Create an account</a>
 </form>
 
 <script src="/javascripts/jquery.min.js"></script>
