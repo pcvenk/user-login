@@ -35,7 +35,14 @@ router.post('/register', function(req, res){
             errors: errors
         });
     }else{
+        passport.authenticate('local-register'), {
 
+            successRedirect: '/dashboard',
+            failureRedirect: '/',
+            failureFlash: true,
+            successFlash: 'Welcome,'+req.user
+
+        })(req, res, next);
     }
 
 });
