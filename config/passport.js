@@ -38,8 +38,8 @@ module.exports = function(passport){
 
                         newUser.username = username;
                         newUser.password = createHash(password);
-                        newUser.email = req.params.email;
-                        newUser.name = req.params.name;
+                        newUser.email = req.param('email');
+                        newUser.name = req.param('name');
                         newUser.join_date = new Date();
 
                         // Add User
