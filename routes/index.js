@@ -14,37 +14,34 @@ router.get('/dashboard', function (req, res, next) {
     res.render('dashboard', {title: 'Dashboard'});
 });
 
-router.post('/register', function(req, res){
+router.post('/register', function(req, res, next){
 
-    var name = req.body.name;
-    var username = req.body.username;
-    var email = req.body.email;
-    var password = req.body.password;
-    var password2 = req.body.password;
+    var name     	    = req.body.name;
+    var email    		= req.body.email;
+    var username 		= req.body.username;
+    var password 		= req.body.password;
+    var password2 		= req.body.password2;
 
-    req.checkBody('name', 'Name is required').notEmpty();
-    req.checkBody('username', 'Username is required').notEmpty();
+    req.checkBody('name', 'Name field is required').notEmpty();
+    req.checkBody('email', 'Email field is required').notEmpty();
     req.checkBody('email', 'Email must be a valid email address').isEmail();
-    req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('password2', 'Passwords need to match').equals(req.body.password);
+    req.checkBody('username', 'Username field is required').notEmpty();
+    req.checkBody('password', 'Password field is required').notEmpty();
+    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
-    var errors = req.validationErrors;
+    var errors = req.validationErrors();
 
     if(errors){
-        res.render('register', {
+        res.render('register',{
             errors: errors
         });
-    }else{
-        passport.authenticate('local-register'), {
-
+    } else {
+        passport.authenticate('local-register',{
             successRedirect: '/dashboard',
             failureRedirect: '/',
-            failureFlash: true,
-            successFlash: 'Welcome,'+req.user
-
-        })(req, res, next);
+            failureFlash: true
+        })(req, res, next)
     }
-
 });
 
 module.exports = router;
