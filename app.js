@@ -14,6 +14,7 @@ var mongoose = require('mongoose');
 var configDB = require('./config/db');
 mongoose.connect(configDB.url);
 
+require('./config/passport')(passport);
 
 var routes = require('./routes/index');
 
@@ -61,7 +62,9 @@ app.use(expressValidator({
   }
 }));
 
-
+//Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
 
