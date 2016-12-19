@@ -15,6 +15,32 @@ module.exports = function(passport){
         });
     });
 
+    // Login
+    passport.use('local-login', new LocalStrategy({
+            passReqToCallback: true
+        },
+        function(req, username, password, done){
+            User.getUserByUsername(username, function(err, user){
+                if(err){
+                    return done(err);
+                }
+                // Does user Exist?
+                if(!user){
+                    req.flash('error','User Not Found');
+                    return done(null, false);
+                }
+                // Is Password Valid?
+                if(!isValidPassword(user, password)){
+                    req.flash('error','Invalid Password');
+                    return done(null, false);
+                }
+
+                req.flash('success','You are now logged in');
+                return done(null, user);
+            });
+        }
+    ));
+
     // Register
     passport.use('local-register', new LocalStrategy({
             passReqToCallback: true
