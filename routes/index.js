@@ -52,4 +52,17 @@ router.post('/logout', function(req, res){
 
 });
 
+router.post('/login', function(req, res){
+
+    var username = req.body.fake_username_remembered;
+    var password = req.body.password;
+
+    passport.authenticate('local-login', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/',
+        failureFlash: true
+    })(req, res, next)
+
+});
+
 module.exports = router;

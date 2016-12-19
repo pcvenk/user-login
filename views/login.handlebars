@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="/stylesheets/style.css">
 
-<form class="form-signin">
+<form class="form-signin"
+      method="post"
+      action="/login">
     <h2 class="form-signin-heading">{{title}}</h2>
     <label class="sr-only">User name</label>
     <input type="text"
@@ -13,6 +15,7 @@
     <input type="password"
            class="form-control"
            placeholder="Password"
+           name="password"
            required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
     <a href="/register">Create an account</a>
