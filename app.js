@@ -66,6 +66,15 @@ app.use(expressValidator({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//global var
+app.use(function(req, res, next){
+  if(req.user){
+    app.locals.username = req.user.username;
+  }
+  next();
+});
+
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler

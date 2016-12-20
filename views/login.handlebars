@@ -1,6 +1,17 @@
 <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="/stylesheets/style.css">
 
+<div class="container">
+    {{{messages}}}
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-warning">{{msg}}</div>
+        {{/each}}
+    {{/if}}
+
+    {{{body}}}
+</div>
+
 <form class="form-signin"
       method="post"
       action="/login">
@@ -23,16 +34,7 @@
     <a href="/register">Create an account</a>
 </form>
 
-<div class="container">
-    {{{messages}}}
-    {{#if errors}}
-        {{#each errors}}
-            <div class="alert alert-warning">{{msg}}</div>
-        {{/each}}
-    {{/if}}
 
-    {{{body}}}
-</div>
 
 <script src="/javascripts/jquery.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
