@@ -13,7 +13,12 @@ router.get('/register', function (req, res, next) {
 });
 
 router.get('/dashboard', function (req, res, next) {
-    res.render('dashboard', {title: 'Dashboard'});
+    if(!req.user){
+        req.flash('error', 'You are not logged in');
+        res.redirect('/');
+    }else {
+        res.render('dashboard', {title: 'Dashboard'});
+    }
 });
 
 router.post('/register', function(req, res, next){

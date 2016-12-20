@@ -21,8 +21,11 @@ var routes = require('./routes/index');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({}));
+app.set('views', path.join(__dirname, '/views'));
+console.log(path.join(__dirname, '/views'));
+app.engine('handlebars', exphbs({
+  // defaultLayout: 'layout'
+}));
 app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public
@@ -66,7 +69,7 @@ app.use(expressValidator({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//global var
+//global var for user display on the dashboard
 app.use(function(req, res, next){
   if(req.user){
     app.locals.username = req.user.username;
