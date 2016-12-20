@@ -25,6 +25,14 @@ module.exports.getUserById = function(id, callback){
 
 };
 
+// Get User by username
+
+module.exports.getUserByUsername = function(username, callback){
+
+    User.findOne({username: username}, callback);
+
+};
+
 // Compare password
 
 module.exports.comparePassword = function(comparePassword, hash, callback){

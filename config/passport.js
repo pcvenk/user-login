@@ -1,4 +1,4 @@
-var LocalStrategy = require('passport-local');
+var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var bcrypt = require('bcryptjs');
 
@@ -87,5 +87,11 @@ module.exports = function(passport){
     //Creating the hash
     var createHash = function(password){
         return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
-    }
+    };
+
+    var isValidPassword = function(user, password){
+
+        return bcrypt.compareSync(password, user.password);
+
+    };
 };

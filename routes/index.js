@@ -52,16 +52,16 @@ router.post('/logout', function(req, res){
 
 });
 
-router.post('/login', function(req, res){
+router.post('/login', function(req, res, next){
 
-    var username = req.body.fake_username_remembered;
+    var username = req.body.username;
     var password = req.body.password;
 
     passport.authenticate('local-login', {
-        successRedirect: '/dashboard',
+        successRedirect:'/dashboard',
         failureRedirect: '/',
         failureFlash: true
-    })(req, res, next)
+    })(req, res, next);
 
 });
 

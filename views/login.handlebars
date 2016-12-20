@@ -9,17 +9,30 @@
     <input type="text"
            class="form-control"
            placeholder="Username"
-           name="fake_username_remembered"
+           name="username"
+           autocomplete="nofill"
            required autofocus>
     <label class="sr-only">Password</label>
     <input type="password"
            class="form-control"
            placeholder="Password"
            name="password"
+           autocomplete="new-password"
            required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
     <a href="/register">Create an account</a>
 </form>
+
+<div class="container">
+    {{{messages}}}
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-warning">{{msg}}</div>
+        {{/each}}
+    {{/if}}
+
+    {{{body}}}
+</div>
 
 <script src="/javascripts/jquery.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
